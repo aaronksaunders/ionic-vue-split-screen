@@ -15,7 +15,6 @@ export default {
       });
     },
     login({ commit }, payload) {
-      debugger;
       if (payload.email == "aaronksaunders@gmail.com") {
         commit("hasUser", { ...payload });
         return true;

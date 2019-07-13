@@ -8,8 +8,6 @@ import "@ionic/core/css/ionic.bundle.css";
 import store from "./store";
 
 import Home from "./views/Home.vue";
-// import About from "./views/About.vue";
-// import Help from "./views/Help.vue";
 
 Vue.use(IonicVueRouter);
 Vue.use(Ionic);
