@@ -5,9 +5,11 @@ import Ionic from "@ionic/vue";
 import "@ionic/core/css/core.css";
 import "@ionic/core/css/ionic.bundle.css";
 
+import store from "./store";
+
 import Home from "./views/Home.vue";
-import About from "./views/About.vue";
-import Help from "./views/Help.vue";
+// import About from "./views/About.vue";
+// import Help from "./views/Help.vue";
 
 Vue.use(IonicVueRouter);
 Vue.use(Ionic);
@@ -18,18 +20,43 @@ Vue.config.ignoredElements = [/^ion-/];
 
 console.log(window.Ionic);
 
+const privateRoute = (to, from, next) => {
+  let isAuthenticated = store.state.user !== null;
+
+  console.log("isAuthenticated:" + isAuthenticated);
+  if (!isAuthenticated) {
+    next({ name: "login" });
+  } else {
+    next();
+  }
+};
+
 const routes = [
-  { path: "/", component: Home },
+  { path: "/", redirect: "/home" },
+  {
+    path: "/home",
+    component: Home,
+    props: true,
+    beforeEnter: privateRoute
+  },
+  // Add @babel/plugin-syntax-dynamic-import (https://git.io/vb4Sv) to the
+  // 'plugins' section of your Babel config to enable parsing.
+  {
+    path: "/login",
+    name: "login",
+    component: () => import(/* webpackChunkName: "login" */ "@/views/Login.vue")
+    //beforeEnter: privateRoute
+  },
   {
     path: "/about",
     name: "about",
-    component: About,
+    component: () => import(/* webpackChunkName: "about" */ "@/views/About.vue")
   },
   {
     path: "/about/help",
     name: "about-help",
-    component: Help,
-  },
+    component: () => import(/* webpackChunkName: "about" */ "@/views/Help.vue")
+  }
 ];
 
 // 3. Create the router instance and pass the `routes` option
@@ -38,8 +65,10 @@ const routes = [
 const router = new IonicVueRouter({
   routes
 });
-
-new Vue({
-  render: h => h(App),
-  router
-}).$mount("#app");
+store.dispatch("user/checkAuth").then(() => {
+  new Vue({
+    render: h => h(App),
+    store,
+    router
+  }).$mount("#app");
+});

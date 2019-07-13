@@ -13,7 +13,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content padding>
-      <hello-world/>
+      <hello-world />
     </ion-content>
   </ion-page>
 </template>
@@ -25,6 +25,11 @@ export default {
   name: "home",
   components: {
     HelloWorld
+  },
+  created() {
+    console.log("onCreated");
+    const menuCtrl = document.querySelector("ion-menu-controller");
+    menuCtrl.enable(true);
   }
 };
 </script>

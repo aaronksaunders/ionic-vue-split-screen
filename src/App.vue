@@ -16,7 +16,7 @@
                 <ion-icon name="home"></ion-icon>
                 <ion-label>
                   <span :class="[{boldLabel : isActive('/') }, 'menu-label']">Home</span>
-                  </ion-label>
+                </ion-label>
               </ion-item>
             </ion-menu-toggle>
             <ion-menu-toggle auto-hide="false">
@@ -29,15 +29,19 @@
             </ion-menu-toggle>
           </ion-list>
         </ion-content>
+        <ion-footer style="text-align:center" padding>
+          <ion-button @click="logout()">LOGOUT</ion-button>
+        </ion-footer>
       </ion-menu>
 
-      <ion-vue-router main/>
+      <ion-vue-router main />
     </ion-split-pane>
   </ion-app>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld";
+import store from "./store";
 
 export default {
   name: "App",
@@ -48,6 +52,10 @@ export default {
   methods: {
     isActive(_path) {
       return this.$route.path == _path;
+    },
+    async logout(){
+      await store.dispatch("user/logout")
+      this.$router.replace('/login');
     }
   }
 };
