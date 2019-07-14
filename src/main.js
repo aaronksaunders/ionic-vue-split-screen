@@ -19,7 +19,8 @@ Vue.config.ignoredElements = [/^ion-/];
 console.log(window.Ionic);
 
 const privateRoute = (to, from, next) => {
-  let isAuthenticated = store.state.user !== null;
+  let userStore = store.state.user;
+  let isAuthenticated = userStore !== null;
 
   console.log("isAuthenticated:" + isAuthenticated);
   if (!isAuthenticated) {
@@ -33,8 +34,8 @@ const routes = [
   { path: "/", redirect: "/home" },
   {
     path: "/home",
+    name: "home",
     component: Home,
-    props: true,
     beforeEnter: privateRoute
   },
   // Add @babel/plugin-syntax-dynamic-import (https://git.io/vb4Sv) to the

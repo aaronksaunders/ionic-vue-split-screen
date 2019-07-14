@@ -49,15 +49,15 @@ export default {
     HelloWorld
   },
   computed: {},
-  methods: {
-    isActive(_path) {
-      return this.$route.path == _path;
-    },
-    async logout(){
-      await store.dispatch("user/logout")
-      this.$router.replace('/login');
-    }
+methods: {
+  isActive(_path) {
+    return this.$route.path == _path;
+  },
+  async logout(){
+    await store.dispatch("user/logout")
+    this.$router.replace('/login');
   }
+}
 };
 </script>
 <style scoped>
