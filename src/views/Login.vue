@@ -15,9 +15,9 @@
     <ion-content padding>
 <form>
   <ion-label position="stacked">Email</ion-label>
-  <ion-input @ionChange="(_event)=> email = _event.detail.value" type="text"></ion-input>
+  <ion-input-vue type="text" v-model="email" ></ion-input-vue>
   <ion-label position="stacked">Password</ion-label>
-  <ion-input @ionChange="(_event)=> password = _event.detail.value" type="password"></ion-input>
+  <ion-input-vue type="password" v-model="password" ></ion-input-vue>  
   <ion-button @click="doLogin()">Login</ion-button>
 </form>
     </ion-content>
@@ -29,12 +29,14 @@ export default {
   name: "Login",
 methods: {
   async doLogin() {
-    await this.$store.dispatch("user/login", {
+    let result = await this.$store.dispatch("user/login", {
       email: this.email,
       password: this.password
     });
-    console.log(this.$store.state);
-    this.$router.push("/");
+    if (true) {
+      console.log(this.$store.state);
+      this.$router.push("/");
+    }
   }
 },
 data() {
@@ -46,7 +48,7 @@ data() {
   mounted() {
     console.log("mounted");
     const menuCtrl = document.querySelector("ion-menu-controller");
-    menuCtrl.enable(false);
+    // menuCtrl.enable(false);
   }
 };
 </script>

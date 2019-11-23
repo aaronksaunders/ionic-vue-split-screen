@@ -28,6 +28,12 @@
           <ion-label>Mushrooms</ion-label>
           <ion-checkbox slot="end" value="mushrooms"/>
         </ion-item>
+
+       <ion-item>
+        <ion-label>on-input-vue test</ion-label>
+        <ion-input-vue type="text" id="theOne" v-model="user.custom" required=true maxlength="2"> </ion-input-vue>
+       </ion-item>
+
       </ion-list>
       <ion-button @click="$router.push('/about/help')">Help</ion-button>
     </ion-content>
@@ -36,6 +42,17 @@
 
 <script>
 export default {
-  name: "about"
-};
+  name: "about",
+  data() {
+    return {
+      user: { custom: "" }
+    };
+  }
+}
 </script>
+<style scoped>
+ion-input#theOne :invalid {
+  background-color:  red !important;
+  }
+
+</style>

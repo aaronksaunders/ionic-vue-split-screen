@@ -20,9 +20,9 @@ console.log(window.Ionic);
 
 const privateRoute = (to, from, next) => {
   let userStore = store.state.user;
-  let isAuthenticated = userStore !== null;
-
+  let isAuthenticated = userStore.user !== null;
   console.log("isAuthenticated:" + isAuthenticated);
+  
   if (!isAuthenticated) {
     next({ name: "login" });
   } else {
