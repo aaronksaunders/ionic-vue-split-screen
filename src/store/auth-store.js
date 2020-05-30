@@ -53,4 +53,8 @@ export default {
       state.authChecked = payload.authChecked;
     },
   },
+  //
+  // GETTERS
+  //
+  getters: { }
 };

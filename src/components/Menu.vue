@@ -1,6 +1,6 @@
 /* eslint-disable no-debugger */
 <template>
-  <ion-menu content-id="main" side="start" id="main-menu" v-if="$store.state.user.user">
+  <ion-menu content-id="main" side="start" id="main-menu" v-if="currentUser">
     <ion-header>
       <ion-toolbar color="primary">
         <ion-title>Menu</ion-title>
@@ -10,7 +10,7 @@
     <ion-content>
       <ion-list>
         <ion-list-header>
-          <h2>{{$store.state.user.user.email}}</h2>
+          <h2>{{currentUser.email}}</h2>
         </ion-list-header>
         <ion-menu-toggle auto-hide="false">
           <ion-item button @click="$router.push('/')">
@@ -41,7 +41,11 @@ import store from "../store";
 export default {
   name: "Menu",
   components: {},
-  computed: {},
+  computed: {
+    currentUser() {
+      return this.$store.state.user.user;
+    }
+  },
   methods: {
     isActive(_path) {
       return this.$route.path == _path;
