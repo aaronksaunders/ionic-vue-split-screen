@@ -22,7 +22,7 @@ export default {
       });
     },
     login({ commit }, payload) {
-      if (payload.email == "aaronksaunders@gmail.com") {
+      if (payload.email !== "") {
         commit("hasUser", { ...payload });
         return true;
       } else {
