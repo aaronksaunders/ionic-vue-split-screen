@@ -28,8 +28,8 @@ export default {
   },
   created() {
     console.log("onCreated");
-    const menuCtrl = document.querySelector("ion-menu-controller");
-   // menuCtrl.enable(true);
+    // const menuCtrl = document.querySelector("ion-menu-controller");
+    // menuCtrl?.enable(true);
   }
 };
 </script>

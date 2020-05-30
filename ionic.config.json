@@ -1,0 +1,8 @@
+{
+    "name": "ionic-vue-web-components-split-screen",
+    "integrations": {
+      "capacitor": {}
+    },
+    "type": "vue"
+  }
+  
