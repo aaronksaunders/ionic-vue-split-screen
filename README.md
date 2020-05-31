@@ -2,6 +2,8 @@
 Ionic Vue Web Components - Split-Screen aka SideMenu
 - updated May 20th - latest version of ionic, modified to work with ionic/cli commands
 
+### YOU TUBE VIDEO
+https://www.youtube.com/watch?v=T6YL1jeH8EM
 
 ### Differences from the Base Vue Implementation
 Adding the ionic specific router will provide default animations to application
