@@ -1,6 +1,7 @@
-# ionic-vue-split-screen
+# ionic-vue-split-screen - vuex branch
 Ionic Vue Web Components - Split-Screen aka SideMenu
-- updated May 20th - latest version of ionic, modified to work with ionic/cli commands
+- Updated May 20th - latest version of ionic, modified to work with ionic/cli commands
+- The **Vue Composition Version** of this project is available on this branch [vue-composition](https://github.com/aaronksaunders/ionic-vue-split-screen/tree/vue-composition)
 
 ### YOU TUBE VIDEO
 https://www.youtube.com/watch?v=T6YL1jeH8EM
