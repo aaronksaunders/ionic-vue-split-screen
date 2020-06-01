@@ -2,7 +2,7 @@
   <div main class="ion-page">
     <ion-header>
       <ion-toolbar>
-        <ion-buttons slot="start" v-if="$store.user">
+        <ion-buttons slot="start">
           <ion-menu-toggle>
             <ion-button>
               <ion-icon slot="icon-only" name="menu"></ion-icon>
@@ -27,18 +27,14 @@
 </template>
 
 <script>
+import useAuth from "../useAuth";
 export default {
   name: "Login",
   methods: {
     async doLogin() {
-      let result = await this.$store.dispatch("user/login", {
-        email: this.email,
-        password: this.password
-      });
-      if (result) {
-        console.log(this.$store.state);
-        this.$router.push("/");
-      }
+      let { login } = useAuth();
+      await login();
+      this.$router.push("/");
     }
   },
   data() {
@@ -49,8 +45,6 @@ export default {
   },
   mounted() {
     console.log("mounted");
-    // const menuCtrl = document.querySelector("ion-menu-controller");
-    // menuCtrl.enable(false);
   }
 };
 </script>

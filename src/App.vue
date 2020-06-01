@@ -1,6 +1,6 @@
 <template>
   <ion-app>
-    <ion-split-pane content-id="main">
+    <ion-split-pane content-id="main" when="md">
       <Menu />
       <ion-vue-router id="main"></ion-vue-router>
     </ion-split-pane>
@@ -9,13 +9,14 @@
 
 <script>
 import Menu from "./components/Menu";
+
 export default {
   name: "App",
   components: {
     Menu
   },
   computed: {},
-  methods: {}
+  methods: {},
 };
 </script>
 <style scoped>

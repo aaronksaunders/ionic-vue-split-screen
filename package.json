@@ -13,8 +13,9 @@
     "@capacitor/cli": "^2.1.2",
     "@capacitor/core": "^2.1.2",
     "@capacitor/ios": "^2.1.2",
-    "@ionic/vue": "0.0.9",
     "@ionic/core": "5.0.7",
+    "@ionic/vue": "0.0.9",
+    "@vue/composition-api": "^0.5.0",
     "vue": "2.6.11",
     "vue-router": "3.1.6",
     "vuex": "3.3.0"
