@@ -1,5 +1,7 @@
-# ionic-vue-split-screen
+# ionic-vue-split-screen - vue composition branch
 Ionic Vue Web Components - Split-Screen aka SideMenu
+
+###VIDEO - https://www.youtube.com/watch?v=-QJlRn-R_so
 
 
 ### Differences from the Base Vue Implementation
